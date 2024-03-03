@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/440.e8d1fe19.chunk.css","mappings":"AAAA,qBACE,mBACF,CAEA,6BACE,QAAS,CACT,iBACF","sources":["components/Reviews/Reviews.module.css"],"sourcesContent":[".wrap {\n  padding: 0 20px 20px;\n}\n\n.titleDefault {\n  margin: 0;\n  text-align: center;\n}\n"],"names":[],"sourceRoot":""}
