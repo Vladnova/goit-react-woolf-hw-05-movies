@@ -7,7 +7,7 @@ const Header = () => {
       <nav>
         <ul className={styles.wrapList}>
           <li className={styles.item}>
-            <NavLink className={styles.link} to="/">
+            <NavLink className={styles.link} to="/" end>
               Home
             </NavLink>
           </li>
