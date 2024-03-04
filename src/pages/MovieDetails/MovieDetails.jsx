@@ -14,8 +14,6 @@ import styles from './MovieDetails.module.css';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
-  const [baseUrl, setBaseUrl] = useState('');
-  const [logoSize, setLogoSize] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from ?? '/movies';
@@ -28,13 +26,7 @@ const MovieDetails = () => {
       setMovieDetails(details);
     };
 
-    const getImg = async () => {
-      const { base_url, logo_sizes } = await moviesApi.Configuration();
-      setBaseUrl(base_url);
-      setLogoSize(logo_sizes);
-    };
     getMovieInfo();
-    getImg();
   }, [movieId]);
 
   if (!movieDetails) {
@@ -53,7 +45,7 @@ const MovieDetails = () => {
       <div
         className={styles.wrap}
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(3, 37, 65, 0.7), rgba(3, 37, 65, 0.7)),url(${baseUrl}${logoSize[6]}${backdrop_path})`,
+          backgroundImage: `linear-gradient(to right, rgba(3, 37, 65, 0.7), rgba(3, 37, 65, 0.7)),url(https://image.tmdb.org/t/p/original${backdrop_path})`,
         }}
       >
         <Button type="button" className={styles.goBackBtn} onClick={goBack} >
@@ -61,7 +53,7 @@ const MovieDetails = () => {
         </Button>
         <img
           className={styles.img}
-          src={`${baseUrl}${logoSize[4]}${poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           alt={title}
         />
         <div className={styles.inner}>

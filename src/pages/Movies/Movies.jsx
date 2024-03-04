@@ -8,8 +8,6 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchMovie = searchParams.get('query') || '';
-  const [baseUrl, setBaseUrl] = useState('');
-  const [logoSize, setLogoSize] = useState([]);
 
   useEffect(() => {
     const onSearch = async () => {
@@ -17,13 +15,6 @@ const Movies = () => {
       setMovies(mov);
     };
     onSearch();
-
-    const getImg = async () => {
-      const { base_url, logo_sizes } = await moviesApi.Configuration();
-      setBaseUrl(base_url);
-      setLogoSize(logo_sizes);
-    };
-    getImg();
   }, [searchMovie]);
 
   const onChangeQuery = searchQuery => {
@@ -33,7 +24,7 @@ const Movies = () => {
   return (
     <main>
       <Form onSubmit={onChangeQuery} />
-      <ListMovies movies={movies} baseUrl={baseUrl} logoSize={logoSize}/>
+      <ListMovies movies={movies} />
     </main>
   );
 };

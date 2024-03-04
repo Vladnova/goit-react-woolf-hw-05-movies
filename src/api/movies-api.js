@@ -28,30 +28,21 @@ const getMovieDetail = async movieId => {
   }
 };
 
-const Configuration = async () => {
+const getCast = async movieId => {
   try {
-    const { data } = await axios.get('/configuration');
-    return data.images;
+    const { data } = await axios.get(`/movie/${movieId}/credits`);
+    return data.cast;
   } catch (error) {
     console.log(error);
   }
 };
 
-const getCast = async (movieId) => {
-  try {
-    const { data } = await axios.get(`/movie/${movieId}/credits`);
-    return data.cast;
-  } catch (error) {
-    console.log(error)
-  }
-};
-
-const getReviews = async (movieId) => {
+const getReviews = async movieId => {
   try {
     const { data } = await axios.get(`/movie/${movieId}/reviews`);
     return data.results;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
@@ -59,7 +50,6 @@ const moviesApi = {
   getMoviesInTrend,
   searchMovies,
   getMovieDetail,
-  Configuration,
   getCast,
   getReviews,
 };

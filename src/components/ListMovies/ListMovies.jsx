@@ -2,7 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import DefaultMovieImg from '../../defaultImg/defaultMovieImg.jpg';
 import styles from './ListMovies.module.css';
 
-const ListMovies = ({ movies, baseUrl, logoSize }) => {
+const ListMovies = ({ movies,}) => {
   const location = useLocation();
   return (
     <ul className={styles.wrapList}>
@@ -13,7 +13,7 @@ const ListMovies = ({ movies, baseUrl, logoSize }) => {
               className={styles.img}
               src={
                 poster_path
-                  ? `${baseUrl}${logoSize[4]}${poster_path}`
+                  ? `https://image.tmdb.org/t/p/w500${poster_path}`
                   : `${DefaultMovieImg}`
               }
               alt={title}
